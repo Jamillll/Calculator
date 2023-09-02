@@ -8,6 +8,7 @@
     Title="Calculator"
     Width="400"
     Height="500"
+    MouseDown="WindowMouseDown"
     ResizeMode="NoResize"
     WindowStyle="None"
     mc:Ignorable="d">

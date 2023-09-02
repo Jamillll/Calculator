@@ -19,3 +19,4 @@ G:\My Drive\Project\Calculator\Calculator\obj\Debug\net7.0-windows\refint\Calcul
 G:\My Drive\Project\Calculator\Calculator\obj\Debug\net7.0-windows\Calculator.pdb
 G:\My Drive\Project\Calculator\Calculator\obj\Debug\net7.0-windows\Calculator.genruntimeconfig.cache
 G:\My Drive\Project\Calculator\Calculator\obj\Debug\net7.0-windows\ref\Calculator.dll
+G:\My Drive\Project\Calculator\Calculator\obj\Debug\net7.0-windows\App.baml
