@@ -1,0 +1,5 @@
+G:\My Drive\Project\Calculator\Built Calculator\Calculator.exe
+G:\My Drive\Project\Calculator\Built Calculator\Calculator.dll
+G:\My Drive\Project\Calculator\Built Calculator\Calculator.deps.json
+G:\My Drive\Project\Calculator\Built Calculator\Calculator.runtimeconfig.json
+G:\My Drive\Project\Calculator\Built Calculator\Calculator.pdb
