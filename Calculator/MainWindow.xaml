@@ -8,159 +8,212 @@
     Title="Calculator"
     Width="400"
     Height="500"
+    ResizeMode="NoResize"
+    WindowStyle="None"
     mc:Ignorable="d">
 
     <Window.Resources>
-        <Style x:Key="buttonStyle" TargetType="Button">
-            <Setter Property="FontSize" Value="30" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="FontFamily" Value="Arial" />
+        <Style x:Key="bodyStyle" TargetType="Grid">
+            <Setter Property="Background" Value="#24292E" />
         </Style>
         <Style x:Key="output" TargetType="TextBlock">
             <Setter Property="FontSize" Value="50" />
             <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="FontFamily" Value="Assets/#Dosis" />
             <Setter Property="TextAlignment" Value="Right" />
+            <Setter Property="Foreground" Value="White" />
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,0,32,0" />
         </Style>
         <Style x:Key="storedOutput" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20" />
-            <Setter Property="Foreground" Value="Gray" />
-            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="Foreground" Value="LightGray" />
+            <Setter Property="FontFamily" Value="Assets/#Dosis" />
             <Setter Property="TextAlignment" Value="Right" />
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,0,32,0" />
+        </Style>
+        <Style x:Key="buttonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontFamily" Value="Assets/#Dosis" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderBrush" Value="White" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="0" />
         </Style>
     </Window.Resources>
 
-    <Grid Margin="10">
+    <Grid Style="{StaticResource bodyStyle}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="0.05*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="14*" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <TextBlock
-            x:Name="storedOutput"
             Grid.Row="0"
             Grid.Column="0"
-            Grid.ColumnSpan="4"
-            Style="{StaticResource storedOutput}" />
+            Margin="4"
+            FontFamily="Assets/#Dosis"
+            FontSize="18"
+            FontWeight="Medium"
+            Foreground="White"
+            Text="Calculator" />
 
-        <TextBlock
-            x:Name="output"
+        <Button
+            Grid.Row="0"
+            Grid.Column="1"
+            Click="Minimise"
+            Content="_"
+            FontSize="14"
+            Style="{StaticResource buttonStyle}" />
+        <Button
+            Grid.Row="0"
+            Grid.Column="2"
+            Click="Close"
+            Content="X"
+            FontSize="14"
+            Style="{StaticResource buttonStyle}" />
+
+        <Grid
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="4"
-            Style="{StaticResource output}"
-            Text="0" />
+            Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <Button
-            Grid.Row="2"
-            Grid.Column="0"
-            Click="NumPadClick"
-            Content="7"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="2"
-            Grid.Column="1"
-            Click="NumPadClick"
-            Content="8"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="2"
-            Grid.Column="2"
-            Click="NumPadClick"
-            Content="9"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="2"
-            Grid.Column="3"
-            Click="OperatorClick"
-            Content="/"
-            Style="{StaticResource buttonStyle}" />
+            <TextBlock
+                x:Name="storedOutput"
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Style="{StaticResource storedOutput}" />
 
-        <Button
-            Grid.Row="3"
-            Grid.Column="0"
-            Click="NumPadClick"
-            Content="4"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="3"
-            Grid.Column="1"
-            Click="NumPadClick"
-            Content="5"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="3"
-            Grid.Column="2"
-            Click="NumPadClick"
-            Content="6"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="3"
-            Grid.Column="3"
-            Click="OperatorClick"
-            Content="x"
-            Style="{StaticResource buttonStyle}" />
+            <TextBlock
+                x:Name="output"
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                Style="{StaticResource output}"
+                Text="0" />
 
-        <Button
-            Grid.Row="4"
-            Grid.Column="0"
-            Click="NumPadClick"
-            Content="1"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="4"
-            Grid.Column="1"
-            Click="NumPadClick"
-            Content="2"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="4"
-            Grid.Column="2"
-            Click="NumPadClick"
-            Content="3"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="4"
-            Grid.Column="3"
-            Click="OperatorClick"
-            Content="-"
-            Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="2"
+                Grid.Column="0"
+                Click="NumPadClick"
+                Content="7"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="2"
+                Grid.Column="1"
+                Click="NumPadClick"
+                Content="8"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="2"
+                Grid.Column="2"
+                Click="NumPadClick"
+                Content="9"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="2"
+                Grid.Column="3"
+                Click="OperatorClick"
+                Content="/"
+                Style="{StaticResource buttonStyle}" />
 
-        <Button
-            Grid.Row="5"
-            Grid.Column="0"
-            Click="ClearClick"
-            Content="C"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="5"
-            Grid.Column="1"
-            Click="NumPadClick"
-            Content="0"
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="5"
-            Grid.Column="2"
-            Click="OperatorClick"
-            Content="="
-            Style="{StaticResource buttonStyle}" />
-        <Button
-            Grid.Row="5"
-            Grid.Column="3"
-            Click="OperatorClick"
-            Content="+"
-            Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="3"
+                Grid.Column="0"
+                Click="NumPadClick"
+                Content="4"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                Click="NumPadClick"
+                Content="5"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="3"
+                Grid.Column="2"
+                Click="NumPadClick"
+                Content="6"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="3"
+                Grid.Column="3"
+                Click="OperatorClick"
+                Content="x"
+                Style="{StaticResource buttonStyle}" />
+
+            <Button
+                Grid.Row="4"
+                Grid.Column="0"
+                Click="NumPadClick"
+                Content="1"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="4"
+                Grid.Column="1"
+                Click="NumPadClick"
+                Content="2"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="4"
+                Grid.Column="2"
+                Click="NumPadClick"
+                Content="3"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="4"
+                Grid.Column="3"
+                Click="OperatorClick"
+                Content="-"
+                Style="{StaticResource buttonStyle}" />
+
+            <Button
+                Grid.Row="5"
+                Grid.Column="0"
+                Click="ClearClick"
+                Content="C"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="5"
+                Grid.Column="1"
+                Click="NumPadClick"
+                Content="0"
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="5"
+                Grid.Column="2"
+                Click="OperatorClick"
+                Content="="
+                Style="{StaticResource buttonStyle}" />
+            <Button
+                Grid.Row="5"
+                Grid.Column="3"
+                Click="OperatorClick"
+                Content="+"
+                Style="{StaticResource buttonStyle}" />
+        </Grid>
     </Grid>
 </Window>

@@ -90,5 +90,15 @@ namespace Calculator
             output.Text = currentValue;
             storedOutput.Text = storedValue + " " + storedOperator;
         }
+
+        private void Minimise(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
